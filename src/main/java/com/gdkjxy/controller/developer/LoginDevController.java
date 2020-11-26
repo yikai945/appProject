@@ -5,9 +5,7 @@ import com.gdkjxy.service.developer.DevUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -68,9 +66,9 @@ public class LoginDevController {
      * @return
      */
     @RequestMapping("logout")
-    public void logout(HttpServletRequest request,HttpServletResponse response) throws IOException {
+    public String logout(HttpServletRequest request) throws IOException {
         HttpSession session = request.getSession();
         session.removeAttribute("devUserSession");
-        response.sendRedirect("/index.jsp");
+        return "redirect:/index.jsp";
     }
 }

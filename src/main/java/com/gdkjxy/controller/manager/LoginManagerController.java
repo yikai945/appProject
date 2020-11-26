@@ -44,10 +44,6 @@ public class LoginManagerController {
      */
     @RequestMapping("dologin")
     public String doLogin(BackendUser backendUser, Model model,HttpServletRequest request,HttpServletResponse response){
-        // 禁用浏览器缓存
-        response.setDateHeader("Expires", 0);
-        response.setHeader("Cache-Control", "no-cache");
-        response.setHeader("Pragma", "no-cache");
         System.out.println("devUser:"+backendUser);
         //查询是否登陆成功
         int result = backendUserService.doLogin(backendUser);
@@ -71,13 +67,9 @@ public class LoginManagerController {
      * @return
      */
     @RequestMapping("logout")
-    public void logout(HttpServletRequest request,HttpServletResponse response) throws IOException {
-        // 禁用浏览器缓存
-        response.setDateHeader("Expires", 0);
-        response.setHeader("Cache-Control", "no-cache");
-        response.setHeader("Pragma", "no-cache");
+    public String logout(HttpServletRequest request) throws IOException {
         HttpSession session = request.getSession();
         session.removeAttribute("userSession");
-        response.sendRedirect("/index.jsp");
+        return "redirect:/index.jsp";
     }
 }
