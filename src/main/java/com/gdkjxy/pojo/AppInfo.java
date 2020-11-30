@@ -18,20 +18,37 @@ import java.util.Date;
 public class AppInfo {
     private Long id;
     private String softwareName;
-    private String apkName;
-    private String supportRom;
+    private String APKName;
+    private String supportROM;
     private String interfaceLanguage;
-    private BigDecimal softwareSize;
     private Date updateDate;
+    private BigDecimal softwareSize;
     private Long devId;
     private String appInfo;
-    private Boolean status;
+    private Long status;
     private Date onSaleDate;
     private Date offSaleDate;
-    private Long platformId;
-    private Long categoryLevel3;
-    private Long downloads;
-    private Long createBy;
+    private Integer categoryLevel3;
+    private Integer downloads;
+    private Integer flatformId;
+    private Long createdBy;
     private Date creationDate;
     private Long modifyBy;
+    private Date modifyDate;
+    private Integer categoryLevel1;
+    private Integer categoryLevel2;
+    private String logoPicPath;
+    private String logoLocPath;
+    private Integer versionId;
+
+    /**
+     * 前端所需属性
+     */
+    private String flatformName;
+    private String statusName;
+    private String categoryLevel1Name;
+    private String categoryLevel2Name;
+    private String categoryLevel3Name;
+    private String devName;
+    private String versionNo;
 }

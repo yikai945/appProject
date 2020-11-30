@@ -2,6 +2,7 @@ package com.gdkjxy.mapper;
 
 import com.gdkjxy.pojo.DevUser;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.SelectProvider;
 
 public interface DevUserMapper {
 
@@ -13,15 +14,11 @@ public interface DevUserMapper {
     @Select("select * from dev_user where devCode = #{devCode} and devPassword = #{devPassword}")
     DevUser findByNameAndPwd(DevUser devUser);
 
-    int deleteByPrimaryKey(Long id);
-
-    int insert(DevUser record);
-
-    int insertSelective(DevUser record);
-
-    DevUser selectByPrimaryKey(Long id);
-
-    int updateByPrimaryKeySelective(DevUser record);
-
-    int updateByPrimaryKey(DevUser record);
+    /**
+     * 根据id查找devName
+     * @param id
+     * @return
+     */
+    @Select("select devName from dev_user where id = #{id}")
+    String findDevNameById(Long id);
 }

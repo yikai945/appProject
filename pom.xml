@@ -168,6 +168,12 @@
           <artifactId>pagehelper</artifactId>
           <version>5.0.2</version>
       </dependency>
+      <!--pageHelper依赖包-->
+      <dependency>
+          <groupId>com.github.jsqlparser</groupId>
+          <artifactId>jsqlparser</artifactId>
+          <version>0.9.5</version>
+      </dependency>
 
 <!--    mybatis-generator  -->
       <dependency>
@@ -177,7 +183,6 @@
           <scope>compile</scope>
           <optional>true</optional>
       </dependency>
-
 <!--      fastjson-->
       <dependency>
           <groupId>com.alibaba</groupId>

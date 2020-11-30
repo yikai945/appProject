@@ -22,10 +22,17 @@ public class AppVersion {
     private Long publishStatus;
     private String downloadLink;
     private BigDecimal versionSize;
-    private Long createBy;
-    private Date createDate;
+    private Long createdBy;
+    private Date creationDate;
     private Long modifyBy;
     private Date modifyDate;
     private String apkLocPath;
     private String apkFileName;
+
+
+    private String versionInfo;
+
+    private String appName;
+    private String publishStatusName;
+
 }

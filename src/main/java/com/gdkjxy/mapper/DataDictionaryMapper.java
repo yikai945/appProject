@@ -3,6 +3,8 @@ package com.gdkjxy.mapper;
 import com.gdkjxy.pojo.DataDictionary;
 import org.apache.ibatis.annotations.Select;
 
+import java.util.List;
+
 public interface DataDictionaryMapper {
 
     /**
@@ -13,15 +15,33 @@ public interface DataDictionaryMapper {
     @Select("select valueName from data_dictionary where id = #{id}")
     String findValueNameById(Long id);
 
-    int deleteByPrimaryKey(Long id);
+    /**
+     * 根据appInfo.flatformId查找所属平台
+     * @param id
+     * @return
+     */
+    @Select("select valueName from data_dictionary where typeCode = 'APP_FLATFORM' and valueId = #{id}")
+    String findAppFlatformByValueId(Integer id);
 
-    int insert(DataDictionary record);
+    /**
+     * 根据appInfo.flatformId查找App状态
+     * @param id
+     * @return
+     */
+    @Select("select valueName from data_dictionary where typeCode = 'APP_STATUS' and valueId = #{id}")
+    String findAppStatusByValueId (Integer id);
 
-    int insertSelective(DataDictionary record);
+    /**
+     * 查找所有APP_STATUS
+     * @return
+     */
+    @Select("select * from data_dictionary where typeCode = 'APP_STATUS'")
+    List<DataDictionary> findAllAppStatus();
 
-    DataDictionary selectByPrimaryKey(Long id);
-
-    int updateByPrimaryKeySelective(DataDictionary record);
-
-    int updateByPrimaryKey(DataDictionary record);
+    /**
+     * 查找所有APP_FLATFORM
+     * @return
+     */
+    @Select("select * from data_dictionary where typeCode = 'APP_FLATFORM'")
+    List<DataDictionary> findAllAppFlatform();
 }

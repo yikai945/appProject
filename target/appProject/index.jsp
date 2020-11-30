@@ -34,7 +34,6 @@
       <div>
       <a href="dev/login" class="btn btn-link">开发者平台 入口</a>
       </div>
-      ${userSession.userName },${devUserSession.devName }
     </div>
   </body>
 </html>

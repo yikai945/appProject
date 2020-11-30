@@ -17,15 +17,4 @@ public interface BackendUserMapper {
     @Select("select * from backend_user where userCode = #{userCode} and userPassword = #{userPassword}")
     BackendUser findByNameAndPwd(BackendUser backendUser);
 
-    int deleteByPrimaryKey(Long id);
-
-    int insert(BackendUser record);
-
-    int insertSelective(BackendUser record);
-
-    BackendUser selectByPrimaryKey(Long id);
-
-    int updateByPrimaryKeySelective(BackendUser record);
-
-    int updateByPrimaryKey(BackendUser record);
 }

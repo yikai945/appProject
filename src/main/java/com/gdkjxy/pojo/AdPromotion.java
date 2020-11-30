@@ -19,9 +19,6 @@ public class AdPromotion {
     private Long appId;
     private String adPicPath;
     private Long adPv;
-    /**
-     *  运输位置
-     */
     private Integer carouselPosition;
     private Date startTime;
     private Date endTime;

@@ -43,13 +43,15 @@
 	<mvc:interceptors>
 		<mvc:interceptor>
 			<!--排除login页面的请求都拦截-->
-			<mvc:mapping path="/manage/*"/>
-			<mvc:mapping path="/dev/*"/>
+			<mvc:mapping path="/dev/**"/>
+			<mvc:mapping path="/manage/**"/>
 			<mvc:exclude-mapping path="/manage/dologin"/>
 			<mvc:exclude-mapping path="/dev/dologin"/>
 			<mvc:exclude-mapping path="/manage/login"/>
 			<mvc:exclude-mapping path="/dev/login"/>
-			<!-- 特定请求的拦截器只能有一个 -->
+			<mvc:exclude-mapping path="/manage/logout"/>
+			<mvc:exclude-mapping path="/dev/logout"/>
+<!--			&lt;!&ndash; 特定请求的拦截器只能有一个 &ndash;&gt;-->
 			<bean class="com.gdkjxy.Interceptor.LoginInterceptor" />
 		</mvc:interceptor>
 	</mvc:interceptors>
