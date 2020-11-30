@@ -82,4 +82,13 @@ public class BackendLoginController {
         session.removeAttribute("userSession");
         return "redirect:/index.jsp";
     }
+
+    /**
+     * 返回主页面
+     * @return
+     */
+    @RequestMapping("flatform/main")
+    public String mian(){
+        return "backend/main";
+    }
 }

@@ -62,9 +62,12 @@ public interface AppInfoMapper {
      * @param appInfo
      * @return
      */
-    @Update("update app_info set" +
-            " status=#{status},softwareName=#{softwareName},supportROM=#{supportROM},interfaceLanguage=#{interfaceLanguage},softwareSize=#{softwareSize},updateDate=#{updateDate},devId=#{devId},appInfo=#{appInfo},onSaleDate=#{onSaleDate},offSaleDate=#{offSaleDate},flatformId=#{flatformId},categoryLevel3=#{categoryLevel3},downloads=#{downloads},createdBy=#{createdBy},creationDate=#{creationDate},modifyBy=#{modifyBy},modifyDate=#{modifyDate},categoryLevel1=#{categoryLevel1},categoryLevel2=#{categoryLevel2},logoPicPath=#{logoPicPath},logoLocPath=#{logoLocPath},versionId=#{versionId}" +
-            " where id = #{id}")
+    @Update("<script>" +
+            "update app_info set " +
+            " <if test=\"status != null\">status=#{status},</if> " +
+            " softwareName=#{softwareName},supportROM=#{supportROM},interfaceLanguage=#{interfaceLanguage},softwareSize=#{softwareSize},updateDate=#{updateDate},devId=#{devId},appInfo=#{appInfo},onSaleDate=#{onSaleDate},offSaleDate=#{offSaleDate},flatformId=#{flatformId},categoryLevel3=#{categoryLevel3},downloads=#{downloads},createdBy=#{createdBy},creationDate=#{creationDate},modifyBy=#{modifyBy},modifyDate=#{modifyDate},categoryLevel1=#{categoryLevel1},categoryLevel2=#{categoryLevel2},logoPicPath=#{logoPicPath},logoLocPath=#{logoLocPath},versionId=#{versionId}" +
+            " where id = #{id}" +
+            "</script>")
     int modifyAppInfo(AppInfo appInfo);
 
     /**

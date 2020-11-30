@@ -13,12 +13,11 @@ import javax.servlet.http.HttpSession;
  * @Date 2020/11/26
  * @Version 1.0
  */
-public class LoginInterceptor implements HandlerInterceptor {
+public class BackendLoginInterceptor implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-        System.out.println(request.getServletPath()+"进入拦截器");
         HttpSession session = request.getSession();
-        if (session.getAttribute("userSession") == null&&session.getAttribute("devUserSession") == null){
+        if (session.getAttribute("userSession") == null){
             response.sendRedirect("/403.jsp");
         }
         return true;
